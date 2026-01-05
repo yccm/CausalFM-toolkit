@@ -354,3 +354,4 @@ class BaseTrainer(ABC):
         print(f"Total time: {format_time(self.total_training_time)}")
         print(f"Best validation loss: {self.best_val_loss:.4f}")
 
+

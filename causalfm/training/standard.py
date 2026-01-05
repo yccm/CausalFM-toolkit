@@ -170,3 +170,4 @@ class StandardCATETrainer(BaseTrainer):
         
         return loss, {'rmse': rmse}
 
+

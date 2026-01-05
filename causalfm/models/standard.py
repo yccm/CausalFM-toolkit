@@ -200,3 +200,4 @@ class StandardCATEModel:
     def __repr__(self) -> str:
         return f"StandardCATEModel(device={self.device})"
 
+
