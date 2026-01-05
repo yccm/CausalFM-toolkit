@@ -109,17 +109,15 @@ Quick Links
 * :doc:`../examples/instrumental_variables` - IV example
 * :doc:`../examples/frontdoor_adjustment` - Front-door example
 
-Module Index
-------------
+Quick Module Reference
+----------------------
 
-.. autosummary::
-   :toctree: _autosummary
-   :recursive:
+For detailed API documentation, see the individual module pages:
 
-   causalfm.data
-   causalfm.models
-   causalfm.training
-   causalfm.evaluation
+* :doc:`data` - Data generation and loading
+* :doc:`models` - Model classes for causal inference
+* :doc:`training` - Training configuration and trainers
+* :doc:`evaluation` - Evaluation metrics and utilities
 
 Search
 ------

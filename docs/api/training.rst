@@ -3,20 +3,15 @@ Training API
 
 This page documents the training APIs in CausalFM.
 
-.. module:: causalfm.training
-
 Trainer Classes
 ---------------
 
 StandardCATETrainer
 ~~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: causalfm.training.standard.StandardCATETrainer
-   :members:
-   :undoc-members:
-   :show-inheritance:
+**Class:** ``causalfm.training.standard.StandardCATETrainer``
 
-   Trainer for standard CATE models.
+Trainer for standard CATE models.
    
    Example:
    
@@ -38,12 +33,9 @@ StandardCATETrainer
 IVTrainer
 ~~~~~~~~~
 
-.. autoclass:: causalfm.training.iv.IVTrainer
-   :members:
-   :undoc-members:
-   :show-inheritance:
+**Class:** ``causalfm.training.iv.IVTrainer``
 
-   Trainer for instrumental variables models.
+Trainer for instrumental variables models.
    
    Example:
    
@@ -64,12 +56,9 @@ IVTrainer
 FrontdoorTrainer
 ~~~~~~~~~~~~~~~~
 
-.. autoclass:: causalfm.training.frontdoor.FrontdoorTrainer
-   :members:
-   :undoc-members:
-   :show-inheritance:
+**Class:** ``causalfm.training.frontdoor.FrontdoorTrainer``
 
-   Trainer for front-door adjustment models.
+Trainer for front-door adjustment models.
    
    Example:
    
@@ -93,11 +82,9 @@ Configuration
 TrainingConfig
 ~~~~~~~~~~~~~~
 
-.. autoclass:: causalfm.training.base.TrainingConfig
-   :members:
-   :undoc-members:
+**Class:** ``causalfm.training.base.TrainingConfig``
 
-   Configuration class for training.
+Configuration class for training.
    
    Parameters:
    

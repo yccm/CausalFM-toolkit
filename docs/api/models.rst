@@ -3,20 +3,15 @@ Models API
 
 This page documents the model APIs in CausalFM.
 
-.. module:: causalfm.models
-
 Model Classes
 -------------
 
 StandardCATEModel
 ~~~~~~~~~~~~~~~~~
 
-.. autoclass:: causalfm.models.standard.StandardCATEModel
-   :members:
-   :undoc-members:
-   :show-inheritance:
+**Class:** ``causalfm.models.standard.StandardCATEModel``
 
-   Foundation model for standard CATE estimation.
+Foundation model for standard CATE estimation.
    
    This model uses a transformer architecture with GMM prediction head
    for estimating conditional average treatment effects.
@@ -46,12 +41,9 @@ StandardCATEModel
 IVModel
 ~~~~~~~
 
-.. autoclass:: causalfm.models.iv.IVModel
-   :members:
-   :undoc-members:
-   :show-inheritance:
+**Class:** ``causalfm.models.iv.IVModel``
 
-   Foundation model for instrumental variables setting.
+Foundation model for instrumental variables setting.
    
    This model uses instruments to identify causal effects in the
    presence of unobserved confounding.
@@ -78,12 +70,9 @@ IVModel
 FrontdoorModel
 ~~~~~~~~~~~~~~
 
-.. autoclass:: causalfm.models.frontdoor.FrontdoorModel
-   :members:
-   :undoc-members:
-   :show-inheritance:
+**Class:** ``causalfm.models.frontdoor.FrontdoorModel``
 
-   Foundation model for front-door adjustment setting.
+Foundation model for front-door adjustment setting.
    
    This model uses mediators to identify causal effects via
    front-door adjustment when backdoor paths are blocked.

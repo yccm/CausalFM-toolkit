@@ -6,17 +6,10 @@ This page documents the data generation and loading APIs in CausalFM.
 Data Generators
 ---------------
 
-.. module:: causalfm.data.generators
-
 StandardCATEGenerator
 ~~~~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: causalfm.data.generators.standard.StandardCATEGenerator
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-   Generate synthetic datasets for standard CATE estimation.
+Generate synthetic datasets for standard CATE estimation.
    
    Example:
    
@@ -39,12 +32,7 @@ StandardCATEGenerator
 IVDataGenerator
 ~~~~~~~~~~~~~~~
 
-.. autoclass:: causalfm.data.generators.iv.IVDataGenerator
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-   Generate synthetic datasets for instrumental variables setting.
+Generate synthetic datasets for instrumental variables setting.
    
    Example:
    
@@ -64,12 +52,7 @@ IVDataGenerator
 FrontdoorDataGenerator
 ~~~~~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: causalfm.data.generators.frontdoor.FrontdoorDataGenerator
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-   Generate synthetic datasets for front-door adjustment setting.
+Generate synthetic datasets for front-door adjustment setting.
    
    Example:
    
@@ -92,37 +75,32 @@ Base Classes
 DAGStructuredSCM
 ^^^^^^^^^^^^^^^^
 
-.. autoclass:: causalfm.data.generators.base.DAGStructuredSCM
-   :members:
-   :undoc-members:
-   :show-inheritance:
+Structural Causal Model with DAG structure for generating covariates.
 
-   Structural Causal Model with DAG structure for generating covariates.
+**Key Methods:**
+
+* ``__init__(num_features, num_layers, hidden_size, edge_drop_prob)`` - Initialize DAG-SCM
+* ``generate(num_samples)`` - Generate samples following the DAG structure
 
 BaseMLPGenerator
 ^^^^^^^^^^^^^^^^
 
-.. autoclass:: causalfm.data.generators.base.BaseMLPGenerator
-   :members:
-   :undoc-members:
-   :show-inheritance:
+Base class for MLP-based data generation components.
 
-   Base class for MLP-based data generation components.
+**Key Methods:**
+
+* ``__init__(input_dim, hidden_dim, output_dim)`` - Initialize MLP generator
+* ``forward(x)`` - Generate outputs given inputs
 
 Data Loaders
 ------------
 
-.. module:: causalfm.data.loaders
-
 StandardDataLoader
 ~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: causalfm.data.loaders.standard.CausalDataset
-   :members:
-   :undoc-members:
-   :show-inheritance:
+PyTorch Dataset for loading standard CATE training data.
 
-   PyTorch Dataset for loading standard CATE training data.
+**Class:** ``causalfm.data.loaders.standard.CausalDataset``
    
    Example:
    
@@ -134,47 +112,34 @@ StandardDataLoader
       dataset = CausalDataset("data/train/", file_pattern="*.csv")
       loader = DataLoader(dataset, batch_size=16, shuffle=True)
 
-.. autofunction:: causalfm.data.loaders.standard.collate_fn
-
-   Custom collate function for batching causal datasets.
+**Function:** ``causalfm.data.loaders.standard.collate_fn`` - Custom collate function for batching causal datasets.
 
 StandardTestDataLoader
 ~~~~~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: causalfm.data.loaders.standard.CausalTestDataset
-   :members:
-   :undoc-members:
-   :show-inheritance:
+PyTorch Dataset for loading standard CATE test data.
 
-   PyTorch Dataset for loading standard CATE test data.
+**Class:** ``causalfm.data.loaders.standard.CausalTestDataset``
 
-.. autofunction:: causalfm.data.loaders.standard.test_collate_fn
-
-   Custom collate function for batching test datasets.
+**Function:** ``causalfm.data.loaders.standard.test_collate_fn`` - Custom collate function for batching test datasets.
 
 IV Data Loaders
 ~~~~~~~~~~~~~~~
 
-.. autoclass:: causalfm.data.loaders.iv.IVDataset
-   :members:
-   :undoc-members:
-   :show-inheritance:
+PyTorch Dataset for loading IV training data.
 
-   PyTorch Dataset for loading IV training data.
+**Class:** ``causalfm.data.loaders.iv.IVDataset``
 
-.. autofunction:: causalfm.data.loaders.iv.iv_collate_fn
+**Function:** ``causalfm.data.loaders.iv.iv_collate_fn`` - Custom collate function.
 
 Front-door Data Loaders
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: causalfm.data.loaders.frontdoor.FrontdoorDataset
-   :members:
-   :undoc-members:
-   :show-inheritance:
+PyTorch Dataset for loading front-door training data.
 
-   PyTorch Dataset for loading front-door training data.
+**Class:** ``causalfm.data.loaders.frontdoor.FrontdoorDataset``
 
-.. autofunction:: causalfm.data.loaders.frontdoor.frontdoor_collate_fn
+**Function:** ``causalfm.data.loaders.frontdoor.frontdoor_collate_fn`` - Custom collate function.
 
 Utility Functions
 -----------------

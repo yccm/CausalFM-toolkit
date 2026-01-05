@@ -3,17 +3,15 @@ Evaluation API
 
 This page documents the evaluation APIs in CausalFM.
 
-.. module:: causalfm.evaluation
-
 Metrics
 -------
 
 compute_pehe
 ~~~~~~~~~~~~
 
-.. autofunction:: causalfm.evaluation.metrics.compute_pehe
+**Function:** ``causalfm.evaluation.metrics.compute_pehe(predictions, ground_truth)``
 
-   Compute Precision in Estimation of Heterogeneous Effects (PEHE).
+Compute Precision in Estimation of Heterogeneous Effects (PEHE).
    
    .. math::
    
@@ -42,9 +40,9 @@ compute_pehe
 compute_ate_error
 ~~~~~~~~~~~~~~~~~
 
-.. autofunction:: causalfm.evaluation.metrics.compute_ate_error
+**Function:** ``causalfm.evaluation.metrics.compute_ate_error(predictions, ground_truth)``
 
-   Compute Average Treatment Effect error.
+Compute Average Treatment Effect error.
    
    .. math::
    
@@ -69,9 +67,9 @@ compute_ate_error
 compute_mse
 ~~~~~~~~~~~
 
-.. autofunction:: causalfm.evaluation.metrics.compute_mse
+**Function:** ``causalfm.evaluation.metrics.compute_mse(predictions, ground_truth)``
 
-   Compute Mean Squared Error.
+Compute Mean Squared Error.
    
    .. math::
    
@@ -96,9 +94,9 @@ compute_mse
 compute_rmse
 ~~~~~~~~~~~~
 
-.. autofunction:: causalfm.evaluation.metrics.compute_rmse
+**Function:** ``causalfm.evaluation.metrics.compute_rmse(predictions, ground_truth)``
 
-   Compute Root Mean Squared Error.
+Compute Root Mean Squared Error.
    
    .. math::
    
