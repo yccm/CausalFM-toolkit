@@ -132,13 +132,6 @@ The IV setting includes:
 * **A**: Treatment (affected by X, U, and Z)
 * **Y**: Outcome (affected by X, U, and A)
 
-Causal Graph::
-
-    Z → A → Y
-    X → A → Y
-    X ↗   ↗
-    U ----→
-
 .. code-block:: python
 
    # Binary instrument (common in RCTs)
@@ -207,13 +200,6 @@ The front-door setting includes:
 * **A**: Treatment
 * **M**: Mediator (on causal path from A to Y)
 * **Y**: Outcome
-
-Causal Graph::
-
-    A → M → Y
-    ↑       ↑
-    U ------→
-    (backdoor path blocked by M)
 
 .. code-block:: python
 

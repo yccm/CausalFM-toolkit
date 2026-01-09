@@ -114,13 +114,6 @@ CausalFM supports three causal inference settings:
    model = StandardCATEModel.from_pretrained("checkpoints/standard.pth")
    result = model.estimate_cate(x_train, a_train, y_train, x_test)
 
-**Causal graph:**
-
-::
-
-   X → A → Y
-   X -------→ Y
-
 2. Instrumental Variables
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -133,15 +126,6 @@ CausalFM supports three causal inference settings:
    model = IVModel.from_pretrained("checkpoints/iv.pth")
    result = model.estimate_cate(x_train, z_train, a_train, y_train, x_test)
 
-**Causal graph:**
-
-::
-
-   Z → A → Y
-   X → A → Y
-   X ↗   ↗
-   U ----→  (U unobserved)
-
 3. Front-door Adjustment
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -153,14 +137,6 @@ CausalFM supports three causal inference settings:
    
    model = FrontdoorModel.from_pretrained("checkpoints/fd.pth")
    result = model.estimate_cate(x_train, m_train, a_train, y_train, x_test)
-
-**Causal graph:**
-
-::
-
-   A → M → Y
-   ↑       ↑
-   U ------→  (U unobserved, M mediator)
 
 Basic Workflow
 --------------
