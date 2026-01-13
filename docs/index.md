@@ -101,7 +101,7 @@ license
 ## Installation
 
 ```bash
-git clone https://github.com/yccm/CausalFM.git
+git clone https://github.com/yccm/CausalFM-toolkit.git
 cd CausalFM-toolkit
 pip install -r requirements.txt
 ```
@@ -127,7 +127,7 @@ CausalFM Toolkit is released under the Apache License 2.0. See {doc}`license` fo
 
 ## Community
 
-- **GitHub:** https://github.com/yccm/CausalFM  
+- **GitHub:** https://github.com/yccm/CausalFM-toolkit  
 - **Paper:** https://arxiv.org/abs/2506.10914  
 - **Documentation:** https://causalfm.readthedocs.io  
 

@@ -32,7 +32,7 @@ Step 1: Clone the Repository
 
 .. code-block:: bash
 
-   git clone https://github.com/yccm/CausalFM.git
+   git clone https://github.com/yccm/CausalFM-toolkit.git
    cd CausalFM-toolkit
 
 Step 2: Create Environment
@@ -164,7 +164,7 @@ For development and contributing:
 
 .. code-block:: bash
 
-   git clone https://github.com/yccm/CausalFM.git
+   git clone https://github.com/yccm/CausalFM-toolkit.git
    cd CausalFM-toolkit
    pip install -e .  # Editable install
    pip install -r requirements-dev.txt  # Development dependencies

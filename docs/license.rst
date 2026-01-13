@@ -27,7 +27,7 @@ Full License Text
 
 For the complete license text, see the LICENSE file in the repository root:
 
-https://github.com/yccm/CausalFM/blob/main/LICENSE
+https://github.com/yccm/CausalFM-toolkit/blob/main/LICENSE
 
 What This Means
 ---------------
@@ -93,7 +93,7 @@ Questions?
 
 If you have questions about the license, please:
 
-* Open an issue on GitHub: https://github.com/yccm/CausalFM/issues
+* Open an issue on GitHub: https://github.com/yccm/CausalFM-toolkit/issues
 * Contact us via email
 
 We're happy to clarify any licensing questions you may have.

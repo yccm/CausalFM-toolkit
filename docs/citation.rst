@@ -84,7 +84,7 @@ Contact
 
 For questions, issues, or contributions, please:
 
-* Open an issue on GitHub: https://github.com/yccm/CausalFM
+* Open an issue on GitHub: https://github.com/yccm/CausalFM-toolkit
 * Contact the authors via email: [contact information]
 
 Contributing
@@ -106,7 +106,7 @@ Community
 
 Join our community to stay updated:
 
-* **GitHub:** https://github.com/yccm/CausalFM
+* **GitHub:** https://github.com/yccm/CausalFM-toolkit
 * **Documentation:** https://causalfm.readthedocs.io
 * **Paper:** https://arxiv.org/abs/2506.10914
 

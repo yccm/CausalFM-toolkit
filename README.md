@@ -2,7 +2,7 @@
 
 PyTorch Implementation on Paper [Foundation Models for Causal Inference via Prior-Data Fitted Networks](https://arxiv.org/abs/2506.10914)
 
-📖 **[Full Documentation](https://causalfm-toolkit.readthedocs.io/en/latest/index.html)** | 📄 **[Paper](https://arxiv.org/abs/2506.10914)** | 💻 **[GitHub](https://github.com/yccm/CausalFM)**
+📖 **[Full Documentation](https://causalfm-toolkit.readthedocs.io/en/latest/index.html)** | 📄 **[Paper](https://arxiv.org/abs/2506.10914)** | 💻 **[GitHub](https://github.com/yccm/CausalFM-toolkit)**
 
 ## 📌 Introduction
 
@@ -23,8 +23,8 @@ This repository contains dataset generation pipelines, model implementations, an
 Clone the repository and install dependencies:
 
 ```bash
-git clone https://github.com/yccm/CausalFM.git
-cd CausalFM
+git clone https://github.com/yccm/CausalFM-toolkit.git
+cd CausalFM-toolkit
 conda create -n causalfm python=3.10
 conda activate causalfm
 pip install -r requirements.txt
