@@ -141,6 +141,65 @@ PyTorch Dataset for loading front-door training data.
 
 **Function:** ``causalfm.data.loaders.frontdoor.frontdoor_collate_fn`` - Custom collate function.
 
+Data Normalization
+------------------
+
+normalize_data
+~~~~~~~~~~~~~~
+
+Normalize features and outcomes for consistent model training and evaluation.
+
+.. code-block:: python
+
+   from causalfm.data import normalize_data
+   
+   # Training: fit and transform
+   X_train_norm, Y_train_norm, x_scaler, y_scaler = normalize_data(
+       X_train, Y_train, Y0_train, Y1_train
+   )
+   
+   # Testing: transform only
+   X_test_norm, Y_test_norm, _, _ = normalize_data(
+       X_test, Y_test, 
+       x_scaler=x_scaler, 
+       y_scaler=y_scaler
+   )
+
+**Parameters:**
+
+* ``X`` (np.ndarray): Feature matrix of shape (n_samples, n_features)
+* ``Y`` (np.ndarray): Outcome vector of shape (n_samples,) or (n_samples, 1)
+* ``Y0`` (np.ndarray, optional): Potential outcome under control
+* ``Y1`` (np.ndarray, optional): Potential outcome under treatment
+* ``x_scaler`` (StandardScaler, optional): Pre-fitted scaler for X
+* ``y_scaler`` (StandardScaler, optional): Pre-fitted scaler for Y
+
+**Returns:**
+
+* Tuple of (X_normalized, Y_normalized, x_scaler, y_scaler)
+
+normalize_ite
+~~~~~~~~~~~~~
+
+Normalize potential outcomes and compute normalized ITE.
+
+.. code-block:: python
+
+   from causalfm.data import normalize_ite
+   
+   # Normalize and compute ITE
+   ITE_norm, y_scaler = normalize_ite(Y0_test, Y1_test, y_scaler)
+
+**Parameters:**
+
+* ``Y0`` (np.ndarray): Potential outcome under control
+* ``Y1`` (np.ndarray): Potential outcome under treatment  
+* ``y_scaler`` (StandardScaler, optional): Pre-fitted scaler
+
+**Returns:**
+
+* Tuple of (ITE_normalized, y_scaler)
+
 Utility Functions
 -----------------
 

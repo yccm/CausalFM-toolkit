@@ -4,6 +4,22 @@ Evaluation
 CausalFM provides comprehensive evaluation tools for assessing model performance 
 on causal inference tasks.
 
+.. important::
+   
+   **Data Normalization Required**
+   
+   If your model was trained on normalized data, you **must** normalize test data 
+   before evaluation to ensure consistent results.
+   
+   .. code-block:: python
+   
+      from causalfm.data import normalize_data
+      
+      # Normalize test data
+      X_norm, Y_norm, x_scaler, y_scaler = normalize_data(
+          X_test, Y_test, Y0_test, Y1_test
+      )
+
 Evaluation Metrics
 ------------------
 
@@ -97,6 +113,7 @@ Evaluating a Single Dataset
 
    from causalfm.models import StandardCATEModel
    from causalfm.evaluation import compute_pehe, compute_ate_error
+   from causalfm.data import normalize_data, normalize_ite
    import pandas as pd
    import torch
    
@@ -106,12 +123,21 @@ Evaluating a Single Dataset
    # Load test data
    df = pd.read_csv("data/test/test_dataset_1.csv")
    
-   # Extract features
+   # Extract and normalize features
    x_cols = [c for c in df.columns if c.startswith('x')]
-   X = torch.FloatTensor(df[x_cols].values)
+   X_norm, Y_norm, x_scaler, y_scaler = normalize_data(
+       df[x_cols].values,
+       df['outcome'].values,
+       df['y0'].values,
+       df['y1'].values
+   )
+   
+   X = torch.FloatTensor(X_norm)
    A = torch.FloatTensor(df['treatment'].values).unsqueeze(1)
-   Y = torch.FloatTensor(df['outcome'].values).unsqueeze(1)
-   true_ite = df['ite'].values
+   Y = torch.FloatTensor(Y_norm).unsqueeze(1)
+   
+   # Normalize ITE for evaluation
+   true_ite, _ = normalize_ite(df['y0'].values, df['y1'].values, y_scaler)
    
    # Split into train/test for in-context learning
    n_train = int(0.8 * len(X))

@@ -290,13 +290,36 @@ Core Workflows
 
 .. code-block:: python
 
-   from causalfm.evaluation import evaluate_model
+   from causalfm.evaluation import compute_pehe
+   from causalfm.data import normalize_data
+   import pandas as pd
+   import torch
    
-   result = evaluate_model(
-       model,
-       data_path="data/test/test_dataset_1.csv",
-       train_ratio=0.8  # Use 80% for context, 20% for evaluation
+   # Load and normalize test data
+   df = pd.read_csv("data/test/test_dataset_1.csv")
+   x_cols = [c for c in df.columns if c.startswith('x')]
+   
+   X_norm, Y_norm, _, _ = normalize_data(
+       df[x_cols].values,
+       df['outcome'].values,
+       df['y0'].values,
+       df['y1'].values
    )
+   
+   # Prepare data
+   X = torch.FloatTensor(X_norm)
+   A = torch.FloatTensor(df['treatment'].values).unsqueeze(1)
+   Y = torch.FloatTensor(Y_norm).unsqueeze(1)
+   
+   # Evaluate
+   n_train = int(0.8 * len(X))
+   result = model.estimate_cate(X[:n_train], A[:n_train], Y[:n_train], X[n_train:])
+   
+   # Compute metrics
+   from causalfm.data import normalize_ite
+   true_ite, _ = normalize_ite(df['y0'].values, df['y1'].values)
+   pehe = compute_pehe(result['cate'].cpu().numpy(), true_ite[n_train:])
+   print(f"PEHE: {pehe:.4f}")
    
    print(result)
    # EvaluationResult(dataset=test_dataset_1, 

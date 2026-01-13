@@ -150,26 +150,40 @@ result = fd_model.estimate_cate(x_train, m_train, a_train, y_train, x_test)
 Evaluate models using standard metrics:
 
 ```python
-from causalfm.evaluation import compute_pehe, compute_ate_error, evaluate_model
+from causalfm.evaluation import compute_pehe, compute_ate_error
+from causalfm.data import normalize_data
+import pandas as pd
+import torch
 
-# Compute individual metrics
-pehe = compute_pehe(cate_predictions, true_ite)
-ate_error = compute_ate_error(cate_predictions, true_ite)
+# Load test data
+df = pd.read_csv("data/test/test_dataset_1.csv")
+x_cols = [c for c in df.columns if c.startswith('x')]
 
-# Evaluate on a dataset
-from causalfm.models import StandardCATEModel
-model = StandardCATEModel.from_pretrained("checkpoints/best_model.pth")
-result = evaluate_model(model, "data/test/test_dataset_1.csv")
-print(f"PEHE: {result.pehe:.4f}, ATE Error: {result.ate_error:.4f}")
-
-# Evaluate on multiple datasets
-from causalfm.evaluation.metrics import evaluate_multiple_datasets
-results_df = evaluate_multiple_datasets(
-    model,
-    data_dir="data/test/",
-    file_pattern="test_*.csv"
+# Normalize data (important for consistency with training!)
+X_norm, Y_norm, x_scaler, y_scaler = normalize_data(
+    df[x_cols].values, 
+    df['outcome'].values,
+    df['y0'].values,
+    df['y1'].values
 )
-print(results_df)
+
+# Prepare tensors
+X = torch.FloatTensor(X_norm)
+A = torch.FloatTensor(df['treatment'].values).unsqueeze(1)
+Y = torch.FloatTensor(Y_norm).unsqueeze(1)
+
+# Get normalized ITE for evaluation
+from causalfm.data import normalize_ite
+true_ite_norm, _ = normalize_ite(df['y0'].values, df['y1'].values, y_scaler)
+
+# Split and evaluate
+n_train = int(0.8 * len(X))
+model = StandardCATEModel.from_pretrained("checkpoints/best_model.pth")
+result = model.estimate_cate(X[:n_train], A[:n_train], Y[:n_train], X[n_train:])
+
+# Compute metrics
+pehe = compute_pehe(result['cate'].cpu().numpy(), true_ite_norm[n_train:])
+print(f"PEHE: {pehe:.4f}")
 ```
 
 ---

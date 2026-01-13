@@ -18,6 +18,11 @@ from causalfm.data.loaders import (
     create_frontdoor_dataloader,
 )
 
+from causalfm.data.normalization import (
+    normalize_data,
+    normalize_ite,
+)
+
 __all__ = [
     # Generators
     "StandardCATEGenerator",
@@ -27,6 +32,9 @@ __all__ = [
     "create_standard_dataloader",
     "create_iv_dataloader",
     "create_frontdoor_dataloader",
+    # Normalization
+    "normalize_data",
+    "normalize_ite",
 ]
 
 
