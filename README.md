@@ -1,10 +1,19 @@
-# CausalFM
+# CausalFM-toolkit
 
-PyTorch Implementation on Paper [Foundation Models for Causal Inference via Prior-Data Fitted Networks](https://arxiv.org/abs/2506.10914)
 
-📖 **[Full Documentation](https://causalfm-toolkit.readthedocs.io/en/latest/index.html)** | 📄 **[Paper](https://arxiv.org/abs/2506.10914)** | 💻 **[GitHub](https://github.com/yccm/CausalFM-toolkit)**
+
+📖 **[Full Documentation](https://causalfm-toolkit.readthedocs.io/en/latest/index.html)**
+
+💻 **[GitHub](https://github.com/yccm/CausalFM-toolkit)**
+
+📄 **[Paper](https://arxiv.org/abs/2506.10914)** 
+
+
+
 
 ## 📌 Introduction
+
+PyTorch Implementation on Paper [Foundation Models for Causal Inference via Prior-Data Fitted Networks](https://arxiv.org/abs/2506.10914)
 
 In this paper, we introduce **CausalFM**, a comprehensive framework for training PFN-based foundation models in various causal inference settings.
 
