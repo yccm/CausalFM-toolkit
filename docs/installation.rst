@@ -172,6 +172,4 @@ For development and contributing:
 This allows you to modify the source code and see changes immediately.
 
 Next Steps
-----------
-
-After installation, check out the :doc:`quickstart` guide to learn how to use CausalFM Toolkit.
+----------After installation, check out the :doc:`quickstart` guide to learn how to use CausalFM Toolkit.

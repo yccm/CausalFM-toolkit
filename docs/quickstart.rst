@@ -433,6 +433,4 @@ Troubleshooting
 
 **CUDA Out of Memory**: Reduce ``batch_size`` or use ``device='cpu'``
 
-**Shape Mismatch**: Ensure treatments and outcomes have shape ``(n, 1)`` not ``(n,)``
-
-For more help, see the :doc:`installation` guide's troubleshooting section.
+**Shape Mismatch**: Ensure treatments and outcomes have shape ``(n, 1)`` not ``(n,)``For more help, see the :doc:`installation` guide's troubleshooting section.

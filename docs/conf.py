@@ -68,4 +68,3 @@ autosummary_generate = False
 
 # Suppress warnings about duplicate files
 suppress_warnings = ['autosummary']
-
